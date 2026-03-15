@@ -1,0 +1,25 @@
+{
+  "name": "http-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -b",
+    "start": "node ./dist/server.js"
+  },
+  "dependencies": {
+    "@repo/db": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/express": "^5.0.6",
+    "express": "^5.2.1",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsx": "^4.21.0"
+  }
+}
