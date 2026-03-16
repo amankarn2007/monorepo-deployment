@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc -b",
-    "start": "node ./dist/server.js"
+    "start": "node ./dist/server.js",
+    "build:start": "bun run build && bun run start"
   },
   "dependencies": {
     "@repo/db": "workspace:*",
