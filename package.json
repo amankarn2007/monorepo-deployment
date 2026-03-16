@@ -11,7 +11,7 @@
     "db:generate": "cd packages/db && bunx prisma generate && cd ../..",
 
     "build:backend": "cd apps/backend && bun run build",
-    "start:backend": "cd apps/backend && node dist/server.js",
+    "start:backend": "cd apps/backend && bun dist/server.js",
     
     "build:web": "cd apps/web && bun run build",
     "start:web": "cd apps/web && bun run start",
