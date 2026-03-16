@@ -2,7 +2,7 @@ name: Deploy monorepo
 
 on:
     push:
-        branches: [ production ]
+        branches: [ main ]
 
 jobs:
     build:
