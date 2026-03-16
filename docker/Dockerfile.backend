@@ -21,8 +21,10 @@ COPY . .
 # generate db client
 RUN bun db:generate
 
+# build the backend(root script)
+RUN bun build:backend
+
 EXPOSE 8080
 
-#app/backend ko start krna hai
-WORKDIR /usr/src/app/apps/backend
-CMD [ "bun", "run", "build:start" ]
+# root script, start app/backend
+CMD [ "bun", "run", "start:backend" ]

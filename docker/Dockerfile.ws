@@ -22,6 +22,5 @@ RUN bun db:generate
 
 EXPOSE 8081
 
-#app/backend ko start krna hai
-WORKDIR /usr/src/app/apps/websocket
-CMD [ "bun", "run", "dev" ]
+# (root script)
+CMD [ "bun", "run", "start:websocket" ]
