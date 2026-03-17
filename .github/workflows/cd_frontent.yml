@@ -9,24 +9,25 @@ jobs:
     name: Deploying monorepo
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4 # Updated version
+      - name: Checkout the code  # this will copy all files from github repo and paste in virtual machine
+        uses: actions/checkout@v4
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2 # Adds support for modern build features
+        uses: docker/setup-buildx-action@v2
 
-      - name: Docker login
+      - name: Docker login # login docker
         uses: docker/login-action@v2
         with: 
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
+      - name: Build and push # build image using my Dockerfile and then push
         uses: docker/build-push-action@v4
         with: 
           context: .
           file: ./docker/Dockerfile.frontent
           push: true
+          # use DB_URL from github secrets
           build-args: |
             DATABASE_URL=${{ secrets.DATABASE_URL }}
           tags: karnaman02/todo-app-frontent:${{ github.sha }}

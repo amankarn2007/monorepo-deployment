@@ -1,25 +1,27 @@
-name: Deploy the backend
+# when code will be pushed, Docker image build itself and update the Docker Hub. 
+
+name: BUILD AND PUSH DOCKER IMAGES
 
 on:
     push:
-        branches: [ main ]
+        branches: [ main ] # when code is pushed to main branch
 
 jobs:
     build:
         name: Deploying monorepo
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest # github temporary vm
 
-        steps:
-            - name: Checkout the code
+        steps: # do this steps
+            - name: Checkout the code # this will copy all files from github repo and paste in virtual machine
               uses: actions/checkout@v2 
                 
-            - name: Docker login
+            - name: Docker login # login the docker
               uses: docker/login-action@v2
               with: 
                 username: ${{secrets.DOCKERHUB_USERNAME}}
                 password: ${{secrets.DOCKERHUB_TOKEN}}
 
-            - name: Build and push
+            - name: Build and push # build image using my Dockerfile and then push
               uses: docker/build-push-action@v4
               with: 
                 context: .
