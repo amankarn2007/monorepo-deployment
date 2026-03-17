@@ -19,6 +19,8 @@ COPY apps/web/package.json ./apps/web/
 
 RUN bun install
 
+RUN bun add @prisma/client-runtime-utils
+
 # this will copy prisma schemas and ts files
 COPY . .
 

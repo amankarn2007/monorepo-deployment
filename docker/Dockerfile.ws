@@ -9,7 +9,7 @@ COPY turbo.json ./
 
 #packages ke package.json copy karna zaroori hai for workspace linking
 COPY packages/db/package.json ./packages/db/
-
+COPY packages/typescript-config/package.json ./packages/typescript-config/
 COPY apps/websocket/package.json ./apps/websocket/
 
 RUN bun install

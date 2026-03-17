@@ -19,10 +19,7 @@ RUN bun install
 COPY . .
 
 # generate db client
-#RUN bun db:generate
-
-ENV PRISMA_CLIENT_ENGINE_TYPE='binary'
-RUN cd packages/db && bunx prisma generate
+RUN bun db:generate
 
 # build the backend(root script)
 RUN bun build:backend
